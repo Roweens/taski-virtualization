@@ -1,0 +1,35 @@
+services:
+    backend:
+        build:
+            context: ./backend
+        ports:
+            - '5000:5000'
+        networks:
+            - app_network
+        depends_on:
+            - db
+
+    frontend:
+        build:
+            context: ./frontend
+        ports:
+            - '3000:80'
+        networks:
+            - app_network
+
+    db:
+        image: postgres:13
+        environment:
+            POSTGRES_USER: taski_user
+            POSTGRES_PASSWORD: taski_password
+            POSTGRES_DB: taski_db
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+        networks:
+            - app_network
+
+networks:
+    app_network:
+
+volumes:
+    postgres_data:
