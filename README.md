@@ -28,4 +28,4 @@ kubectl create secret docker-registry my-dockerhub-secret \
 ```
 
 5.  В корне проекта создать .env файл, пример - .env.example
-6.  Для корректной работы workflows добавить секреты DOCKER_USERNAME и DOCKER_PASSWORD в настройках репозитория на github.
+6.  Для корректной работы workflows добавить секреты DOCKER_USERNAME, DOCKER_PASSWORD, DB_USERNAME, DB_PASSWORD, DB_NAME в настройках репозитория на github.
