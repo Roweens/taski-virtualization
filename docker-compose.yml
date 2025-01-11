@@ -29,9 +29,9 @@ services:
     db:
         image: postgres:13
         environment:
-            POSTGRES_USER: ${{ secrets.DB_USERNAME }}
-            POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD}}
-            POSTGRES_DB: ${{ secrets.DB_NAME }}
+            POSTGRES_USER: ${DB_USERNAME}
+            POSTGRES_PASSWORD: ${DB_PASSWORD}
+            POSTGRES_DB: ${DB_NAME}
         volumes:
             - postgres_data:/var/lib/postgresql/data
         networks:
