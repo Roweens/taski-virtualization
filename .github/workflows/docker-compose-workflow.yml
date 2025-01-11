@@ -13,11 +13,11 @@ jobs:
             - name: Checkout code
               uses: actions/checkout@v2
 
-          - name: Set environment variables
-            run: |
-              echo "DB_USERNAME=${{ secrets.DB_USERNAME }}" >> $GITHUB_ENV
-              echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> $GITHUB_ENV
-              echo "DB_NAME=${{ secrets.DB_NAME }}" >> $GITHUB_ENV
+            - name: Set environment variables
+              run: |
+                  echo "DB_USERNAME=${{ secrets.DB_USERNAME }}" >> $GITHUB_ENV
+                  echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> $GITHUB_ENV
+                  echo "DB_NAME=${{ secrets.DB_NAME }}" >> $GITHUB_ENV
 
             - name: Set up Docker Compose
               run: |
