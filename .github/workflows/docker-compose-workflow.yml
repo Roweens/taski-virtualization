@@ -15,9 +15,9 @@ jobs:
 
             - name: Set environment variables
               run: |
-                  echo "DB_USERNAME=${{ secrets.DB_USERNAME }}" >> $GITHUB_ENV
-                  echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> $GITHUB_ENV
-                  echo "DB_NAME=${{ secrets.DB_NAME }}" >> $GITHUB_ENV
+                  echo "DB_USERNAME=${{ secrets.DB_USERNAME }}" >> .env
+                  echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
+                  echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
 
             - name: Set up Docker Compose
               run: |
