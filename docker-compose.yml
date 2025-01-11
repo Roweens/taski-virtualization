@@ -1,28 +1,37 @@
 services:
     backend:
+        container_name: 'taski-backend'
         build:
             context: ./backend
+        command: >
+            sh -c "python manage.py migrate --noinput && 
+            python manage.py runserver 0.0.0.0:8080"
+        restart: always
         ports:
             - '5000:5000'
         networks:
             - app_network
         depends_on:
             - db
+        env_file:
+            - .env
 
     frontend:
+        container_name: 'taski-frontend'
         build:
             context: ./frontend
         ports:
             - '3000:80'
         networks:
             - app_network
+        restart: always
 
     db:
         image: postgres:13
         environment:
-            POSTGRES_USER: taski_user
-            POSTGRES_PASSWORD: taski_password
-            POSTGRES_DB: taski_db
+            POSTGRES_USER: ${{ secrets.DB_USERNAME }}
+            POSTGRES_PASSWORD: ${{ secrets.DB_PASSWORD}}
+            POSTGRES_DB: ${{ secrets.DB_NAME }}
         volumes:
             - postgres_data:/var/lib/postgresql/data
         networks:

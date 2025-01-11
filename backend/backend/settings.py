@@ -62,11 +62,11 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'taski_db',
-        'USER': 'taski_user',
-        'PASSWORD': 'taski_password',
-        'HOST': 'db',
-        'PORT': '5432',
+        'NAME': os.environ.get('DB_NAME', 'taski_db'),
+        'USER': os.environ.get('DB_USER', 'taski_user'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'taski_password'),
+        'HOST': os.environ.get('DB_HOST', 'db'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
     }
 }
 
